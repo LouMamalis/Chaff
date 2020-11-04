@@ -30,23 +30,46 @@ knitr::opts_chunk$set(echo = FALSE,
 
 <!-- update the tidyverse package -->
 ```{r packages}
-library(tidyverse)
+library('tidyverse')
+chaff_tidy <- chaff %>%
+  pivot_longer(names_to = "sex",
+               values_to = "mass",
+               cols = everything())
 ```
 
 <!-- adding a code chunk to calculate SS(x) of all the mass values -->
 ```{r sum_sq(chaff_mass)}
-sum_sq <- function(chaff) {
-  sum((chaff - mean(chaff))^2)
+sum_sq <- function(chaff_tidy) {
+  sum((chaff_tidy - mean(chaff_tidy))^2)
 }
 
 ```
 
-<!-- two variables defined within the function -->
+<!-- two variables defined within the function 
+created a dataframe with the column measure in it
+measure is a generic -->
 ```{r column function}
 sum_sq <- function(df, measure) {
   df %>% summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
 }
-sum_sq(chaff, mass)
+sum_sq(chaff_tidy, mass)
+
+# adapt the function to calculate the SS(x) for each sex
+sum_sq <- function(df, measure, group) {
+  df %>% group_by({{ group }}) %>% 
+    summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
+}
+
+sum_sq(chaff_tidy, mass, sex)
 ```
 
-
+<!-- here we are calculating the summary data - mean/ sd/ se etc 
+creates a new table with the results in-->
+```{r summary data}
+chaff_summary <- chaff_tidy %>% 
+  group_by(sex) %>% 
+  summarise(n = length(mass),
+            mean = mean(mass),
+            sd = sd(mass),
+            se = sd/sqrt(n))
+```
