@@ -5,6 +5,17 @@ date: "04/11/2020"
 output: html_document
 ---
 
+#**Introduction** 
+##*This is the introduction section which gives background on the project* 
+
+#**Methods**
+##*This is the methods section that tells you how we did what we did* 
+
+#**Results** 
+
+#**Discussion** 
+
+<!-- keep this default set up code chunk -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -16,3 +27,9 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       fig.retina = 3)
 ```
+
+<!-- update the tidyverse package -->
+```{r packages}
+library(tidyverse)
+```
+
