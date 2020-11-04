@@ -33,3 +33,20 @@ knitr::opts_chunk$set(echo = FALSE,
 library(tidyverse)
 ```
 
+<!-- adding a code chunk to calculate SS(x) of all the mass values -->
+```{r sum_sq(chaff_mass)}
+sum_sq <- function(chaff) {
+  sum((chaff - mean(chaff))^2)
+}
+
+```
+
+<!-- two variables defined within the function -->
+```{r column function}
+sum_sq <- function(df, measure) {
+  df %>% summarise(ss = sum(({{measure}} - mean({{measure}}))^2))
+}
+sum_sq(chaff, mass)
+```
+
+
