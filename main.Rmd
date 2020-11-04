@@ -20,6 +20,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r read in data}
+chaff <- read.table("data-raw/chaff.txt", header = T)
+```
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
@@ -75,7 +79,8 @@ chaff_summary <- chaff_tidy %>%
             sd = sd(mass),
             se = sd/sqrt(n))
 ```
-<!-- creating a function which will calculate the summary stats for the data -->
+<!-- creating a function which will calculate the summary stats for the data 
+remember to add ALL the types of brackets () and {} -->
 ```{r data_summary}
 data_summary <- function(df, measure, group) {
   df %>% group_by({{ group }}) %>% 
