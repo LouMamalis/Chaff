@@ -3,12 +3,12 @@ title: "Chaff_Project"
 author: "Louisa Mamalis"
 date: "04/11/2020"
 output:
-  html_document: default
-  pdf_document: default
+  bookdown::html_document2: default
 bibliography: refs.bib #indentation matters!!!
 ---
 
-# **Introduction** 
+# Introduction 
+
 This is first paper that I found when I looked on Google Scholar for papers about chaffinches [@lachlan2003song]. I then chose this paper by Brumm & Mattias [-@brumm2011song] which was another paper from Google Scholar about singing and chaffinches. 
 
 The male and female birds look very different to each other. The male chaffinch is much more colourful and bright as shown in Figure \@ref(fig:male-chaff-fig). Figure \@ref(fig:female-chaff-fig) the duller, less colourful female chaffinch. 
@@ -25,10 +25,9 @@ knitr::include_graphics("male chaffinch.jpg")
 knitr::include_graphics("female chaffinch.jpg")
 ```
 
-# **Methods**
-This is the methods section that tells you how we did what we did
+# Methods
 
-# **Results** 
+This is the methods section that tells you how we did what we did
 
 <!-- keep this default set up code chunk -->
 ```{r setup, include=FALSE}
@@ -107,6 +106,8 @@ data_summary <- function(df, measure, group) {
 }
 ```
 
+# Results 
+
 <!-- paired t test to see the difference between the mass of the males and females -->
 ```{r data analysis} 
 t.test(data = chaff_tidy, 
@@ -114,8 +115,14 @@ t.test(data = chaff_tidy,
        var.equal = T)
 ```
 
+There is a significant difference between the mass of the male and female chaffinches. 
 
-# **Discussion**
+```{r plot}
+ggplot(chaff_tidy, aes(x = sex, y = mass)) +
+  geom_boxplot()
+```
 
-# **References**
+# Discussion
+
+# References
 
