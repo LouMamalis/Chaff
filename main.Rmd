@@ -108,6 +108,21 @@ data_summary <- function(df, measure, group) {
 
 # Results 
 
+```{r summary-table}
+# this code chunk is to create the summary table
+chaff_summary %>% 
+  knitr::kable(caption = "Summary statistics for Chaffinches",
+               digits = 2,
+               col.names = c("Sex", 
+                             "Mean", 
+                             "N",
+                             "Stdev",
+                             "Stder")) %>%
+  kable_styling(font_size = 15) %>% 
+  add_header_above(c(" " = 1, "Mass" = 4)) %>% 
+  row_spec(row = 0, background = "#9d5e78")
+```
+
 <!-- paired t test to see the difference between the mass of the males and females -->
 ```{r data analysis} 
 t.test(data = chaff_tidy, 
@@ -115,9 +130,9 @@ t.test(data = chaff_tidy,
        var.equal = T)
 ```
 
-There is a significant difference between the mass of the male and female chaffinches. 
+(ref:mass-fig) Boxplot comparing the mean mass for male and female chaffinches.
 
-```{r plot}
+```{r mass-fig fig.height=4, fig.width=4, fig.cap="(ref:mass-fig)"}
 ggplot(chaff_tidy, aes(x = sex, y = mass)) +
   geom_boxplot()
 ```
