@@ -9,11 +9,11 @@ bibliography: refs.bib #indentation matters!!!
 ---
 
 # **Introduction** 
- This is first paper that I found when I looked on Google Scholar for papers about chaffinches [@lachlan2003song]. I then chose this paper by Brumm & Mattias [-@brumm2011song] which was another paper from Google Scholar about singing and chaffinches. 
+This is first paper that I found when I looked on Google Scholar for papers about chaffinches [@lachlan2003song]. I then chose this paper by Brumm & Mattias [-@brumm2011song] which was another paper from Google Scholar about singing and chaffinches. 
 
- The male and female birds look very different to each other. The male chaffinch is much more colourful and bright as shown in \@ref(tab:chaff-male-fig). Figure 2 shows the duller, less colourful female chaffinch. 
+The male and female birds look very different to each other. The male chaffinch is much more colourful and bright as shown in Figure \@ref(fig:male-chaff-fig). Figure \@ref(fig:female-chaff-fig) the duller, less colourful female chaffinch. 
 
-(ref:male-chaff-fig) This is a nice colourful male chaffinch. By Photo © Wikipedia, https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(#Fringilla_coeleb
+(ref:male-chaff-fig) This is a nice colourful male chaffinch. By Photo © Wikipedia, https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(#Fringilla_coeleb).jpg
 
 ```{r male-chaff-fig, out.height="200px", fig.cap='(ref:male-chaff-fig)'}
 knitr::include_graphics("male chaffinch.jpg")
