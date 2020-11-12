@@ -27,7 +27,7 @@ knitr::include_graphics("female chaffinch.jpg")
 
 # Methods
 
-We measured the mass of `r chaff_summary$n[1]` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
+We measured the mass of `r ????` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
 
 We used R [@R-core] with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
 
