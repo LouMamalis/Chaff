@@ -3,7 +3,7 @@ title: "Chaff_Project"
 author: "Louisa Mamalis"
 date: "04/11/2020"
 output:
-  bookdown::html_document2: default
+  bookdown::html_document2: default #check this as can cause problems with referencing later on.
 bibliography: refs.bib #indentation matters!!!
 ---
 
@@ -27,14 +27,16 @@ knitr::include_graphics("female chaffinch.jpg")
 
 # Methods
 
-This is the methods section that tells you how we did what we did
+We measured the mass of `r chaff_summary$n[1]` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
+
+We used R [@R-core] with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
 
 <!-- keep this default set up code chunk -->
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r read in data}
+```{r read in data, include=FALSE}
 chaff <- read.table("data-raw/chaff.txt", header = T)
 ```
 
@@ -123,7 +125,7 @@ chaff_summary %>%
 ```
 
 <!-- paired t test to see the difference between the mass of the males and females -->
-```{r data analysis} 
+```{r data analysis, include=FALSE} 
 t.test(data = chaff_tidy, 
        mass ~ sex,
        var.equal = T)
