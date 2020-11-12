@@ -108,6 +108,8 @@ data_summary <- function(df, measure, group) {
 
 # Results 
 
+There was a significant difference between the mean masses of the female and male chaffinches. This is demonstrated by the results of the t test where the p value was ... and the difference is also displayed in Figure \@ref(fig:mass-fig).
+
 ```{r summary-table}
 # this code chunk is to create the summary table
 chaff_summary %>% 
@@ -117,10 +119,7 @@ chaff_summary %>%
                              "Mean", 
                              "N",
                              "Stdev",
-                             "Stder")) %>%
-  kable_styling(font_size = 15) %>% 
-  add_header_above(c(" " = 1, "Mass" = 4)) %>% 
-  row_spec(row = 0, background = "#9d5e78")
+                             "Stder"))
 ```
 
 <!-- paired t test to see the difference between the mass of the males and females -->
@@ -132,10 +131,11 @@ t.test(data = chaff_tidy,
 
 (ref:mass-fig) Boxplot comparing the mean mass for male and female chaffinches.
 
-```{r mass-fig fig.height=4, fig.width=4, fig.cap="(ref:mass-fig)"}
+```{r mass-fig, fig.cap="(ref:mass-fig)"}
 ggplot(chaff_tidy, aes(x = sex, y = mass)) +
   geom_boxplot()
 ```
+
 
 # Discussion
 
