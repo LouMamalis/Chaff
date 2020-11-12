@@ -25,12 +25,10 @@ knitr::include_graphics("male chaffinch.jpg")
 knitr::include_graphics("female chaffinch.jpg")
 ```
 
- **Methods**
- *This is the methods section that tells you how we did what we did* 
+# **Methods**
+This is the methods section that tells you how we did what we did
 
 # **Results** 
-
-# **Discussion** 
 
 <!-- keep this default set up code chunk -->
 ```{r setup, include=FALSE}
@@ -96,6 +94,7 @@ chaff_summary <- chaff_tidy %>%
             sd = sd(mass),
             se = sd/sqrt(n))
 ```
+
 <!-- creating a function which will calculate the summary stats for the data 
 remember to add ALL the types of brackets () and {} -->
 ```{r data_summary}
@@ -108,6 +107,15 @@ data_summary <- function(df, measure, group) {
 }
 ```
 
+<!-- paired t test to see the difference between the mass of the males and females -->
+```{r data analysis} 
+t.test(data = chaff_tidy, 
+       mass ~ sex,
+       var.equal = T)
+```
+
+
+# **Discussion**
 
 # **References**
 
