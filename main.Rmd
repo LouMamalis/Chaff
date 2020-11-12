@@ -1,19 +1,36 @@
 ---
-title: "main"
+title: "Chaff_Project"
 author: "Louisa Mamalis"
 date: "04/11/2020"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
+bibliography: refs.bib #indentation matters!!!
 ---
 
-#**Introduction** 
-##*This is the introduction section which gives background on the project* 
+# **Introduction** 
+ This is first paper that I found when I looked on Google Scholar for papers about chaffinches [@lachlan2003song]. I then chose this paper by Brumm & Mattias [-@brumm2011song] which was another paper from Google Scholar about singing and chaffinches. 
 
-#**Methods**
-##*This is the methods section that tells you how we did what we did* 
+ The male and female birds look very different to each other. The male chaffinch is much more colourful and bright as shown in \@ref(tab:chaff-male-fig). Figure 2 shows the duller, less colourful female chaffinch. 
 
-#**Results** 
+(ref:male-chaff-fig) This is a nice colourful male chaffinch. By Photo © Wikipedia, https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Chaffinch_(#Fringilla_coeleb
 
-#**Discussion** 
+```{r male-chaff-fig, out.height="200px", fig.cap='(ref:male-chaff-fig)'}
+knitr::include_graphics("male chaffinch.jpg")
+```
+
+(ref:female-chaff-fig) This is a lovely less colourful female chaffinch. By Photo © Wikipedia,  https://en.wikipedia.org/wiki/Common_chaffinch#/media/File:Fulda_Buchfinkweibchen_Juni_2012.JPG
+
+```{r female-chaff-fig, out.height="200px", fig.cap='(ref:female-chaff-fig)'}
+knitr::include_graphics("female chaffinch.jpg")
+```
+
+ **Methods**
+ *This is the methods section that tells you how we did what we did* 
+
+# **Results** 
+
+# **Discussion** 
 
 <!-- keep this default set up code chunk -->
 ```{r setup, include=FALSE}
@@ -25,7 +42,7 @@ chaff <- read.table("data-raw/chaff.txt", header = T)
 ```
 
 
-```{r setup, include=FALSE}
+```{r setup2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE,
                       message = FALSE,
@@ -90,4 +107,7 @@ data_summary <- function(df, measure, group) {
               se = se(({{measure}})))
 }
 ```
+
+
+# **References**
 
