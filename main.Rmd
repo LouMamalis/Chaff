@@ -9,6 +9,12 @@ bibliography: refs.bib #indentation matters!!!
 
 # Introduction 
 
+<!-- This setup chunk needs to go first to set a few basic rules to be followed by the rest of the rmarkdown doco, including echo = FALSE -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
 This is first paper that I found when I looked on Google Scholar for papers about chaffinches [@lachlan2003song]. I then chose this paper by Brumm & Mattias [-@brumm2011song] which was another paper from Google Scholar about singing and chaffinches. 
 
 The male and female birds look very different to each other. The male chaffinch is much more colourful and bright as shown in Figure \@ref(fig:male-chaff-fig). Figure \@ref(fig:female-chaff-fig) the duller, less colourful female chaffinch. 
@@ -27,14 +33,12 @@ knitr::include_graphics("female chaffinch.jpg")
 
 # Methods
 
-We measured the mass of `r ????` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
 
-We used R [@R-core] with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
+
+We used R with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
 
 <!-- keep this default set up code chunk -->
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ```{r read in data, include=FALSE}
 chaff <- read.table("data-raw/chaff.txt", header = T)
@@ -87,6 +91,8 @@ sum_sq(chaff_tidy, mass, sex)
 <!-- here we are calculating the summary data - mean/ sd/ se etc 
 creates a new table with the results in
 this is not using a function though! this is pipeline-->
+
+
 ```{r summary data}
 chaff_summary <- chaff_tidy %>% 
   group_by(sex) %>% 
@@ -95,6 +101,8 @@ chaff_summary <- chaff_tidy %>%
             sd = sd(mass),
             se = sd/sqrt(n))
 ```
+
+We measured the mass of `r sum(chaff_summary$n)` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
 
 <!-- creating a function which will calculate the summary stats for the data 
 remember to add ALL the types of brackets () and {} -->
@@ -110,7 +118,7 @@ data_summary <- function(df, measure, group) {
 
 # Results 
 
-There was a significant difference between the mean masses of the female and male chaffinches. This is demonstrated by the results of the t test where the p value was ... and the difference is also displayed in Figure \@ref(fig:mass-fig).
+
 
 ```{r summary-table}
 # this code chunk is to create the summary table
@@ -126,10 +134,13 @@ chaff_summary %>%
 
 <!-- paired t test to see the difference between the mass of the males and females -->
 ```{r data analysis, include=FALSE} 
-t.test(data = chaff_tidy, 
+res <- t.test(data = chaff_tidy, 
        mass ~ sex,
        var.equal = T)
 ```
+
+There was a significant difference between the mean masses of the female and male chaffinches. This is demonstrated by the results of the t test where the p value was `r res$p.value` and the difference is also displayed in Figure \@ref(fig:mass-fig).
+<!-- to be able to input the p.value firstly give the t test results a name then you can do str(res) of this object and then select the name of the value that you would like to include within the text-->
 
 (ref:mass-fig) Boxplot comparing the mean mass for male and female chaffinches.
 
