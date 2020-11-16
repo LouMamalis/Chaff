@@ -35,7 +35,7 @@ knitr::include_graphics("female chaffinch.jpg")
 
 
 
-We used R with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
+We used R [@team2013r] with tidyverse packages [@R-tidyverse] for all analyses and the rmarkdown [@markdown1] and bookdown [@bookdown] packages for manuscript preparation.
 
 <!-- keep this default set up code chunk -->
 
@@ -118,8 +118,6 @@ data_summary <- function(df, measure, group) {
 ```
 
 # Results 
-
-
 
 ```{r summary-table}
 # this code chunk is to create the summary table
