@@ -101,8 +101,9 @@ chaff_summary <- chaff_tidy %>%
             sd = sd(mass),
             se = sd/sqrt(n))
 ```
+<!-- If you want to include some values from some stats in your text make sure the text chunk comes AFTER the code chunk so that it can actually be used in the text!! -->
 
-We measured the mass of `r sum(chaff_summary$n)` individuals in total, equal numbers of both males (can i paste in something here to link it automatically?) and females (can i paste in something here to link it automatically?).
+We measured the mass of `r sum(chaff_summary$n)` individuals in total, equal numbers of both males and females.
 
 <!-- creating a function which will calculate the summary stats for the data 
 remember to add ALL the types of brackets () and {} -->
